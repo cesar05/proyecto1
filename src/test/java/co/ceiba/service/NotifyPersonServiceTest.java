@@ -23,12 +23,19 @@ public class NotifyPersonServiceTest {
 	public void notifyTest(){
 		//Arrange
 		Person person=new PersonTestDataBuilder().build();	
-		Mockito.when(emailService.sendMail(Mockito.anyString())).thenReturn("Hola mundo");		
+		Mockito.when(emailService.sendMail(Mockito.anyString())).thenReturn("Hola mundo");
 		//Act
 		String message=notifyPersonService.notify(person);
 		//Assert
-		System.out.println(message);
-		Assert.assertNotNull(message);
+		//Assert.assertNotNull(message);
+		Assert.assertNull(message);
 	}
+	
+	@Test
+	public void sendMailTest(){
+		String msj="enviar email";	
+		emailService=new EmailService();
+		Assert.assertNotNull(emailService.sendMail(msj));
+	}	
 	
 }
