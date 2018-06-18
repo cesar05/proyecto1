@@ -1,7 +1,9 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'jacoco'
-
+plugins {
+  id "org.sonarqube" version "2.6"
+}
 repositories{
 	mavenCentral()
 }
