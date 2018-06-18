@@ -1,4 +1,6 @@
 apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'jacoco'
 
 repositories{
 	mavenCentral()
@@ -13,8 +15,10 @@ dependencies{
 	)
 }
 
-jar{
-	task hello<<{
-		println 'Hello'
+test{
+	jacoco{
+		append=false
+		destinationFile =file("jacoco/jacocoTest.exec")
 	}
+	reports.junitXml.destination=file("jacoco/test-results")
 }
