@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Compile') {
 			steps{
-				echo "------------>Unit Tests<------------"
+				echo "------------>Compile<------------"
 				sh 'gradle --b ./build.gradle compileJava'
 			}
 		}
